@@ -3,8 +3,8 @@
 
 ## Install 
 ```bash
-$ git clone https://github.com/ultralytics/yolov5.git
-$ cd yolov5
+$ git clone --recurse-submodules https://github.com/GiangNguyenMinh/Bees-and-Ant.git
+$ cd Bees-and-Ant/yolov5
 $ git install -r requirements.text
 ```
 ## Download dataset
@@ -19,12 +19,9 @@ rf = Roboflow(api_key="dF790Y9GvhJvFReq4jzf")
 project = rf.workspace().project("beeandant")
 dataset = project.version(1).download("yolov5")
 ```
-
-## Inference
+## Modify with customer data
 ```bash
-$ python detect.py --weights /Bees-and-Ant/run/exp/beeandant 
-                   --source /Bees-and-Ant/data/test/images 
-                   --name detect_result
+$ mv /Bees-and-Ant/data/BeeAndAnt/data.yaml ./data/custom_data.yaml
 ```
 ## Training
 #### Run with full option 
@@ -41,8 +38,14 @@ $ python train.py --weights yolov5s.pt --cfg models/yolov5s.yaml --data data/cus
                           yolov5n.pt              yolov5n.yaml
                           yolov5x.pt              yolov5x.yaml
 ```
+## Inference
+```bash
+$ python detect.py --weights /Bees-and-Ant/yolov5/run/train/beeandant 
+                   --source /Bees-and-Ant/data/test/images 
+                   --name detect_result
+```
 #### Train colab 
-Colab code [click here](https://colab.research.google.com/drive/15f4IXID5VAeAmS5Id9ncXBc1F6w44F_A#scrollTo=zKKqh9sdxe7d)
+Colab code [click here](https://colab.research.google.com/drive/15f4IXID5VAeAmS5Id9ncXBc1F6w44F_A?usp=sharing)
 
 
 
